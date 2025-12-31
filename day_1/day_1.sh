@@ -7,4 +7,4 @@
 
 LOG_FILE="$(dirname "$0")/access.log"
 
-awk '{ips[$1]++} END {for (ip in ips) print ips[ip], ip}' $LOG_FILE | sort -nr
+awk '$NF == "500" {ips[$1]++} END {for (ip in ips) print ips[ip], ip}' $LOG_FILE | sort -nr
