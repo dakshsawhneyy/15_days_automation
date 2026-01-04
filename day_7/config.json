@@ -1,0 +1,9 @@
+{
+    "environment": "production",
+    "database": {
+        "host": "10.0.1.55",
+        "port": 5432,
+        "replicas": ["10.0.1.56", "10.0.1.57"]
+    },
+    "app_servers": ["app-01", "app-02", "app-03"]
+}
