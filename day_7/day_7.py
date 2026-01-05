@@ -2,6 +2,7 @@ import os
 import json
 
 config_file = "./config.json"
+log_file = "./server.log"
 
 servers = [
     {"hostname": "web-01", "cpu_usage": 45, "status": "active"},
@@ -48,7 +49,37 @@ logs = [
 # print(problem_servers)
 
 # Ticket 3
-for log in logs:
-    status_code = log.split()[-1]   # -1 = $NF
-    if status_code == "500":
-        print(log.split()[0])
+# for log in logs:
+#     status_code = log.split()[-1]   # -1 = $NF
+#     if status_code == "500":
+#         print(log.split()[0])
+        
+
+# Ticket 4
+
+# Question: Reads server.log.
+#           Finds lines ending in 500.
+#           Uses a Dictionary to count the occurrences per IP.
+#           Prints the result (e.g., 192.168.1.10: 2).
+
+ips = {}
+try:
+    with open(log_file, "r") as f:
+        # content = f.read()
+
+        # if we loop over content, it will loop over every word
+        for line in f:  
+            status_code = line.split()[1]
+            ip = line.split()[0]
+            if status_code == "500":
+                print(ip)
+                ips[ip] = ips.get(ip, 0) + 1
+            
+except FileNotFoundError as e:
+    print(f"{log_file} not found", e)
+    
+
+# Looping over ips dictionary
+print("printing ips from dictionary")
+for ip, count in ips.items():
+    print(ip, count)
