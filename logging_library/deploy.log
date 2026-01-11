@@ -1,0 +1,8 @@
+2026-01-11 16:03:55 - ERROR - Error Dividing by Zero
+2026-01-11 16:04:05 - INFO - 10 // 10 == 1
+2026-01-11 16:05:28 - ERROR - Error Dividing by Zero
+Traceback (most recent call last):
+  File "/mnt/c/Studies/DevOps/15_days_automation/logging_library/automation.py", line 14, in <module>
+    c = a // b
+        ~~^^~~
+ZeroDivisionError: integer division or modulo by zero
