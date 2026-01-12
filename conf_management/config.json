@@ -1,0 +1,16 @@
+[
+    {
+        "app_name": "frontend",
+        "port": 8080,
+        "versions": [
+            "v1",
+            "v2"
+        ],
+        "debug_mode": true
+    },
+    {
+        "app_name": "backend",
+        "port": 8000,
+        "debug_mode": true
+    }
+]
